@@ -1,6 +1,4 @@
-﻿using WebApplication.Models;
-
-namespace WebApplication.Repository;
+﻿namespace WebApi.Repository;
 
 public interface IPersonRepository
 {

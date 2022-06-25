@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using WebApplication.DTO;
-using WebApplication.Services;
-namespace WebApplication.Controllers;
+namespace WebApi.Controllers;
 
 public class PersonController : ControllerBase
 {
@@ -14,15 +11,10 @@ public class PersonController : ControllerBase
 
     [HttpGet]
     [Route("people")]
-    public List<PersonDto> GetAll()
-    {
-        return _personService.GetPeople();
-    }
+    public IReadOnlyList<PersonDto> GetAll() => _personService.GetPeople();
+  
 
     [HttpGet]
     [Route("person")]
-    public PersonDto GetById(int Id)
-    {
-        return _personService.GetPerson(Id);
-    }
+    public PersonDto GetById(int Id) => _personService.GetPerson(Id);
 }

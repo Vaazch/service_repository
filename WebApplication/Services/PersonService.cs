@@ -1,11 +1,7 @@
-﻿using WebApplication.DTO;
-using WebApplication.Models;
-using WebApplication.Repository;
-
-namespace WebApplication.Services;
+﻿namespace WebApi.Services;
 
 /// Here you can write all the bussiness logic and treat all exceptions
-public class PersonService:IPersonSevice
+public class PersonService : IPersonSevice
 {
     private readonly IPersonRepository _personRepostiory;
     public PersonService(IPersonRepository personRepository)
@@ -13,24 +9,10 @@ public class PersonService:IPersonSevice
         _personRepostiory = personRepository;
     }
 
-    public List<PersonDto> GetPeople()
-    {
-        IEnumerable<Person> people = _personRepostiory.GetAll();
-        if (people is null)
-        {
-            throw new Exception("No people found");
-        }
-        List<PersonDto> result = people.Select(person => PersonDto.ToDto(person)).ToList();
-        return result;
-    }
+    public IReadOnlyList<PersonDto> GetPeople() =>
+        _personRepostiory.GetAll().Select(person => PersonDto.ToDto(person)).ToList();
 
-    public PersonDto GetPerson(int id)
-    {
-        Person person = _personRepostiory.GetById(id);
-        if (person is null)
-        {
-            throw new Exception("Person not found");
-        }
-        return PersonDto.ToDto(person);
-    }
+    public PersonDto GetPerson(int id) =>
+         PersonDto.ToDto(_personRepostiory.GetById(id) ?? throw new Exception($"Person with Id {id} was not found"));
+
 }

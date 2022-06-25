@@ -1,9 +1,7 @@
-﻿using WebApplication.DTO;
-
-namespace WebApplication.Services;
+﻿namespace WebApi.Services;
 
 public interface IPersonSevice
 {
-    List<PersonDto> GetPeople();
+    IReadOnlyList<PersonDto> GetPeople();
     PersonDto GetPerson(int id);
 }

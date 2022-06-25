@@ -1,7 +1,4 @@
-﻿using WebApplication.Repository;
-using WebApplication.Services;
-
-namespace WebApplication.Extensions;
+﻿namespace WebApi.Extensions;
 
 public static class DependencyInjection
 {

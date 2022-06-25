@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -13,5 +12,14 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="WebApi.Entity"/>
+		<Using Include="WebApi.Services"/>
+		<Using Include="WebApi.DTO"/>
+		<Using Include="Microsoft.AspNetCore.Mvc"/>
+		<Using Include="WebApi.Repository"/>
+		<Using Include="WebApi.Extensions"/>
+	</ItemGroup>
 
 </Project>
